@@ -1,13 +1,15 @@
 
 class account;
+
+template <typename T>
 class BoundCheckPointArray
 {
 private:
-	account** accounts;
+	T* accounts;
 	int acclen;
 public:
 	BoundCheckPointArray(int len);
-	account* operator[](int len);
-	void AccountCreate(int num, account* account);
+	T operator[](int len);
+	void AccountCreate(int num, T account);
 	~BoundCheckPointArray();
 };

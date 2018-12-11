@@ -1,5 +1,6 @@
 #define MAX_ACCOUNT 5
 #include <cstring>
+#include "String.h"
 #include "AccountArray.h"
 #include "exception.h"
 #ifndef IOSTREAM
@@ -15,7 +16,7 @@ private:
 	char* name;
 
 public:
-	account(int num, int mon, char* nam);
+	account(int num, int mon, String nam);
 	account(account &copy);
 	virtual void CallAccount()const;
 	int compare(int num);
@@ -29,7 +30,7 @@ class NormalAccount : public account
 private:
 	double interestRate;
 public:
-	NormalAccount(int num, int mon, char* nam, double rate);
+	NormalAccount(int num, int mon, String nam, double rate);
 	void Deposit(int mon);
 	void CallAccount() const;
 };
@@ -39,7 +40,7 @@ private:
 	double interestRate;
 	char specialRate;
 public:
-	HighCreditAccount(int num, int mon, char* nam, double rate, char special);
+	HighCreditAccount(int num, int mon, String nam, double rate, char special);
 	void Deposit(int mon);
 	void CallAccount() const;
 };

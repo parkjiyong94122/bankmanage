@@ -1,5 +1,7 @@
 #define MAX_ACCOUNT 5
 #include "account.h"
+#include "AccountArray.h"
+#include "AccountArray.cpp"
 
 
 void call_menu();
@@ -7,7 +9,7 @@ void call_menu();
 class ControlBank
 {
 private:
-	BoundCheckPointArray accounts;
+	BoundCheckPointArray<account *> accounts;
 	int account_num;
 public:
 	ControlBank();

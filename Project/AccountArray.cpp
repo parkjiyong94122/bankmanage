@@ -2,11 +2,14 @@
 #include<iostream>
 using namespace std;
 
-BoundCheckPointArray::BoundCheckPointArray(int len) : acclen(len)
+template <typename T>
+BoundCheckPointArray<T>::BoundCheckPointArray(int len) : acclen(len)
 {
-	accounts = new account*[len];
+	accounts = new T[len];
 }
-account* BoundCheckPointArray::operator[](int idx)
+
+template <typename T>
+T BoundCheckPointArray<T>::operator[](int idx)
 {
 	if (idx < 0 || idx > acclen)
 	{
@@ -15,11 +18,15 @@ account* BoundCheckPointArray::operator[](int idx)
 	}
 	return accounts[idx];
 }
-void BoundCheckPointArray::AccountCreate(int num, account* account)
+
+template <typename T>
+void BoundCheckPointArray<T>::AccountCreate(int num, T account)
 {
 	accounts[num] = account;
 }
-BoundCheckPointArray::~BoundCheckPointArray()
+
+template <typename T>
+BoundCheckPointArray<T>::~BoundCheckPointArray()
 {
 	delete[] accounts;
 }

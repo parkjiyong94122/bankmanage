@@ -1,18 +1,16 @@
 #include "account.h"
 
-account::account(int num = 0, int mon = 0, char* nam = NULL)
+account::account(int num = 0, int mon = 0, String nam = NULL)
 {
 	number = num;
 	money = mon;
-	int len = strlen(nam) + 1;
-	name = new char[len];
-	strcpy(name, nam);
+	String str(nam);
 }
+
 account::account(account &copy) : number(copy.number), money(copy.money)
 {
-	int len = strlen(copy.name) + 1;
-	name = new char[len];
-	strcpy(name, copy.name);
+	String str(copy.name);
+	str = name;
 }
 void account::CallAccount()const
 {
@@ -53,7 +51,7 @@ account::~account()
 	delete name;
 }
 
-NormalAccount::NormalAccount(int num, int mon, char* nam, double rate) : account(num, mon, nam), interestRate(rate*0.01)
+NormalAccount::NormalAccount(int num, int mon, String nam, double rate) : account(num, mon, nam), interestRate(rate*0.01)
 {}
 void NormalAccount::Deposit(int mon)
 {
@@ -66,7 +64,7 @@ void NormalAccount::CallAccount() const
 	cout << "ÀÌÀÚÀ² : " << interestRate * 100 << endl;
 }
 
-HighCreditAccount::HighCreditAccount(int num, int mon, char* nam, double rate, char special) : account(num, mon, nam), specialRate(special), interestRate(rate*0.01)
+HighCreditAccount::HighCreditAccount(int num, int mon, String nam, double rate, char special) : account(num, mon, nam), specialRate(special), interestRate(rate*0.01)
 {
 	if (special == 'A')
 		interestRate += 0.7;
