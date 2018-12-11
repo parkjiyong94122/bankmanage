@@ -115,11 +115,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="account.cpp" />
     <ClCompile Include="bank.cpp" />
+    <ClCompile Include="exception.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="AccountArray.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="account.h" />
+    <ClInclude Include="AccountArray.h" />
     <ClInclude Include="bank.h" />
+    <ClInclude Include="exception.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
